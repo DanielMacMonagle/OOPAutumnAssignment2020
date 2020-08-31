@@ -1,0 +1,4 @@
+Q1 D
+I created an interface called Vehicle which will be implemented into the Car Class. I could create different vehicles eg
+Car, Van, Boat, Plane that would all implement the Vehicle interface. The interface cannot be used to create the objects
+but acts as placeholder in a class hirearchy to represents the generic type.
