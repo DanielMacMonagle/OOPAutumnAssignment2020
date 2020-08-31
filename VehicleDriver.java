@@ -3,6 +3,11 @@ import java.util.ArrayList; // import the ArrayList class
 import javax.swing.*; // importing javax swing for jtext area.
 
 public class VehicleDriver {
+
+              //creating UI jframe/jtextarea for displaying cars older than 10.
+              JFrame displayCars = new JFrame();
+              JTextArea carsDisplay = new JTextArea("Cars Collection older than 10");
+             
     public static void main(String[] args) throws Exception {
         //store age of car.
           int age;
@@ -11,14 +16,6 @@ public class VehicleDriver {
 
           //creating arraylist to store the cars of type car.
           ArrayList<Car> cars = new ArrayList<Car>(); 
-
-
-          //creating UI jframe/jtextarea for displaying cars older than 10.
-          JFrame displayCars = new JFrame();
-         JTextArea carsDisplay = new JTextArea("Cars Collection older than 10");
-         carsDisplay.setBounds(10,30, 200,200);
-         //add cars Display to jframe.
-         displayCars.add(carsDisplay);
 
 
           answer = JOptionPane.showConfirmDialog(null, "Would you like to create a car");
@@ -48,23 +45,49 @@ public class VehicleDriver {
         }
 
 
-        //displaying all car objects which are older than 10.
-        public static void over10Years(ArrayList<Car> carsOver10Years) {
-        
-        //using enhanced for loop to loop over orginal car collection.
-        for (Car carsOver10 : cars) {
-            if (carsOver10.getAge() > 10) {
-                //add cars over 10 years to new arraylist.
-                carsOver10Years.add(carsOver10);
-            }
-            //append arraylist to jtext area
-            carsDisplay.setText(carsOver10Years.toString());
-           
-
-        }
-    }
+        //calling over 10 years class.
+        over10Years(cars);
         
 }
+
+        //displaying all car objects which are older than 10.
+        public static void over10Years(ArrayList<Car> cars) {
+
+            //creating new arraylist to store cars
+            ArrayList<Car> carsOver10Years = new ArrayList<>();
+     
+        
+            //using enhanced for loop to loop over orginal car collection.
+            for (Car carsOver10 : cars) {
+                if (carsOver10.getAge() > 10) {
+                    //add cars over 10 years to new arraylist.
+                    carsOver10Years.add(carsOver10);
+                }
+                        
+            }   
+
+                          //creating UI jframe/jtextarea for displaying cars older than 10.
+                JFrame displayCars = new JFrame();
+                JTextArea carsDisplay = new JTextArea("Cars Collection older than 10");
+             
+            
+                //append arraylist to jtext area
+                carsDisplay.setSize(200, 200);
+                displayCars.setLocationRelativeTo(null);
+                    //add cars Display to jframe.
+                displayCars.add(carsDisplay);
+                carsDisplay.setText(carsOver10Years.toString());
+            
+                //show the jframe
+                displayCars.setVisible(true);
+        }
+
+
+
+
+      //return the oldest objects in the collection.
+      
+        
 
 
 
